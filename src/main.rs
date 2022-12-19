@@ -35,6 +35,11 @@ fn App() -> Html {
                     </span>
                 </a>
                 <div class="navbar-item is-hidden-desktop is-justify-content-end is-flex-grow-1">
+                <a target="_blank" rel="me" href="https://hachyderm.io/@whynotcats" class="navbar-item">
+                    <span class="icon">
+                        <Icon icon_id={IconId::BootstrapMastodon} />
+                    </span>
+                </a>
                 <a href="https://github.com/whynotcats" class="navbar-item">
                     <span class="icon-text is-hidden-touch">
                         <span class="icon">
@@ -69,6 +74,11 @@ fn App() -> Html {
                         <Icon icon_id={IconId::BootstrapCameraFill} />
                     </span>
                 </a>
+                <a target="_blank" rel="me" href="https://hachyderm.io/@whynotcats" class="navbar-item is-hidden-touch">
+                    <span class="icon">
+                        <Icon icon_id={IconId::BootstrapMastodon} />
+                    </span>
+                </a>
             </div>
         </div>
         </nav>
@@ -93,14 +103,14 @@ fn App() -> Html {
                                 <span class="icon mb-1 is-rounded is-large has-text-white has-background-primary media-left">
                                     <Icon icon_id={IconId::BootstrapMoonStars} />
                                 </span>
-                                <span class="media-content title m-1 is-3">{"Ideal Photo Times"}</span>
+                                <span class="media-content title m-1 is-3">{"Astro Cal"}</span>
                             </span>
                             <div class="content">
                                 <p class="text">{"Generate calendar events for predictable photo events such as moon/sunrise, golden hour, etc"}</p>
                             </div>
                         </div>
                         <footer class="card-footer has-text-centered">
-                            <a href="#" class="has-background-primary has-text-white card-footer-item">{"Site"}</a>
+                            <a href="https://astro-cal.whynotcats.com" class="has-background-primary has-text-white card-footer-item">{"Site"}</a>
                             <a href="#" class="card-footer-item">{"View Source"}</a>
                             <a href="#" class="card-footer-item">{"Blog Post"}</a>
                         </footer>

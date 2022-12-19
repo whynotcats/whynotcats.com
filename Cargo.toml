@@ -17,10 +17,4 @@ wasm-bindgen = "0.2"
 # wasm-logger = "0.2.0"
 # icalendar = "0.13.3"
 # features found in https://finnbear.github.io/yew_icons/
-yew_icons = {version = "0.6.1", features = ["BootstrapMoonStars", "FontAwesomeSolidCat", "BootstrapGithub", "BootstrapJournalBookmarkFill", "BootstrapCameraFill", "BootstrapTwitter"]}
-
-[profile.release]
-panic = 'abort'
-codegen-units = 1
-opt-level = 'z' 
-lto = true
+yew_icons = {version = "0.6.1", features = ["BootstrapMoonStars", "FontAwesomeSolidCat", "BootstrapGithub", "BootstrapJournalBookmarkFill", "BootstrapCameraFill", "BootstrapTwitter", "BootstrapMastodon"]}
