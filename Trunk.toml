@@ -1,0 +1,5 @@
+[watch]
+watch = ["..\\styles", "src", "index.html", "Trunk.toml"]
+
+[build]
+dist = "../dist/homepage"
