@@ -1,14 +1,16 @@
+use crate::components::nav::NavIcon;
 use web_sys::MouseEvent;
 use yew::{
     classes, create_portal, function_component, html, use_state, AttrValue, Callback, Children,
     Classes, Html, Properties,
 };
-use yew_icons::IconId;
 
-use crate::components::nav::NavIcon;
+use super::icons::IconId;
+use markdown;
 
 #[derive(Properties, PartialEq)]
 pub struct ProjectModalProps {
+    #[prop_or(false)]
     pub is_active: bool,
     pub callback: Callback<MouseEvent>,
     pub title: AttrValue,
@@ -19,7 +21,7 @@ pub struct ProjectModalProps {
     pub source_url: AttrValue,
     #[prop_or_default]
     pub blog_url: AttrValue,
-    #[prop_or(false)]
+    #[prop_or(true)]
     pub in_dev: bool,
 }
 
@@ -37,6 +39,8 @@ pub fn project_modal(props: &ProjectModalProps) -> Html {
         .body()
         .unwrap();
 
+    let md = markdown::to_html(&props.summary.clone());
+    println!("{}", &md);
     create_portal(
         html! {
             <div class={classes!("modal", active)}>
@@ -44,10 +48,10 @@ pub fn project_modal(props: &ProjectModalProps) -> Html {
                     <div class="modal-card">
                         <header class="modal-card-head">
                         <p class="modal-card-title">{props.title.clone()}</p>
-                        <button class="delete" aria-label="close"></button>
+                        <button class="delete" onclick={props.callback.clone()} aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
-                        <p>{props.summary.clone()}</p>
+                        <div class="content">{Html::from_html_unchecked(AttrValue::from(md))}</div>
                         </section>
                         <ProjectCardFooter
                             site_url={props.site_url.clone()}
@@ -66,9 +70,13 @@ pub fn project_modal(props: &ProjectModalProps) -> Html {
 
 #[derive(Properties, PartialEq)]
 pub struct ProjectCardFooterProps {
+    #[prop_or_default]
     pub site_url: AttrValue,
+    #[prop_or_default]
     pub source_url: AttrValue,
+    #[prop_or_default]
     pub blog_url: AttrValue,
+    #[prop_or_default]
     pub in_dev: bool,
     pub class: Classes,
 }
@@ -102,8 +110,10 @@ fn project_card_footer(props: &ProjectCardFooterProps) -> Html {
 
 #[derive(Properties, PartialEq)]
 pub struct ProjectCardProps {
+    #[prop_or_default]
     pub icon_id: IconId,
     pub name: AttrValue,
+    #[prop_or_default]
     pub short_desc: AttrValue,
     #[prop_or_default]
     pub summary: AttrValue,
@@ -137,8 +147,9 @@ pub fn project_card(props: &ProjectCardProps) -> Html {
     };
 
     html! {
-        <div class="card card-lg match-height">
+        <div class="card block card-lg match-height">
             <div class="card-content" onclick={open_modal}>
+                <NavIcon id={IconId::InfoFilled} class="mb-1 is-rounded is-small has-text-primary is-pulled-right" />
                 <span class="media icon-text is-align-items-center">
                     <NavIcon class="mb-1 is-rounded is-large has-text-white has-background-primary media-left" id={props.icon_id} />
                     <span class="media-content title m-1 is-3">{props.name.clone()}</span>
@@ -179,9 +190,7 @@ pub fn project_gallery(props: &ProjectGalleryProps) -> Html {
             <div class="container">
                 <h2 class="title has-text-centered-mobile has-text-centered-tablet has-text-left-desktop">{"Projects"}</h2>
                 <div class="columns is-multiline">
-                    <div class="column is-4-widescreen is-6-desktop is-6-tablet">
                         {for props.children.iter()}
-                    </div>
                 </div>
             </div>
         </section>
