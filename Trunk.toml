@@ -2,4 +2,9 @@
 watch = ["..\\styles", "src", "index.html", "Trunk.toml"]
 
 [build]
-dist = "../dist/homepage"
+dist = "..\\dist\\homepage"
+
+[[hooks]]
+stage = "post_build"
+command = "nu"
+command_arguments = ["bundle.nu", "$env.TRUNK_STAGING_DIR", "$env.TRUNK_PROFILE"]

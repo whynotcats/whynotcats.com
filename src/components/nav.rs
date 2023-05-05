@@ -43,10 +43,12 @@ pub fn navbar() -> Html {
     <div class="container is-mobile">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <NavIconWithText class="has-background-primary has-text-white p-2" id={IconId::SolidCat} text={"Why Not Cats?"} />
+                <NavIconWithText class="is-hidden-touch has-background-primary has-text-white p-2" id={IconId::SolidCat} text={"Why Not Cats?"} />
+                <NavIcon class="is-hidden-desktop is-medium has-border-radius-4 has-background-primary has-text-white p-2" id={IconId::SolidCat} />
             </a>
             <a class="navbar-item" href="https://blog.whynotcats.com">
-                <NavIconWithText id={IconId::BlogIcon} text={"Blog"} />
+                <NavIconWithText class="is-hidden-touch" id={IconId::BlogIcon} text={"Blog"} />
+                <NavIcon class="is-hidden-desktop" id={IconId::BlogIcon} />
             </a>
             <a href="https://github.com/whynotcats" class="navbar-item is-hidden-touch">
                 <NavIconWithText id={IconId::Github} text={"Github"} />
