@@ -65,6 +65,7 @@ fn App() -> Html {
                         name={"Social Media Feed"}
                         icon_id={IconId::ColumnsGap}
                         short_desc={"Take back control over your social media accounts and get a custom amalgamated social media feed"}
+                        summary={include_str!("one-pagers\\social-media-feed.md")}
                         in_dev={true} />
                 </Column>
                 <Column>
@@ -72,23 +73,27 @@ fn App() -> Html {
                         icon_id={IconId::Twitch}
                         name={"Twitch Games"}
                         short_desc={"Twitch integrated games"}
+                        summary={include_str!("one-pagers\\twitch-games.md")}
                         in_dev={true} />
                     <ProjectCard
                         icon_id={IconId::Bento}
                         name={"Bento Generator"}
-                        short_desc={"Generate a bento box with random ingredients"}
+                        short_desc={"Generate balanced bento boxes with variable ingedients"}
+                        summary={include_str!("one-pagers\\bento-generator.md")}
                         in_dev={true} />
                 </Column>
                 <Column>
                     <ProjectCard
                         icon_id={IconId::JarWheat}
                         name={"Bread Assistant"}
-                        short_desc={"App to manage the lifecycle of baking breads."}
+                        short_desc={"Tool to assist managing the schedule of home bread making"}
+                        summary={include_str!("one-pagers\\bread-assistant.md")}
                         in_dev={true} />
                     <ProjectCard
                         icon_id={IconId::Linkedin}
                         name={"Cat Linkedin Bot"}
-                        short_desc={"ChatGPT bot to generate a fake linkedin profile for your cat."}
+                        short_desc={"ChatGPT bot to generate a linkedin posts (from the perspective of a cat)"}
+                        summary={include_str!("one-pagers\\cat-linkedin-bot.md")}
                         in_dev={true} />
                 </Column>
             </ProjectGallery>
